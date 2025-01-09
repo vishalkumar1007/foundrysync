@@ -350,7 +350,7 @@ const UserAuth = () => {
       });
     }
   }
-  
+
   return (
     <div className="UserAuth_main">
       <div className="auth-container">
@@ -370,6 +370,11 @@ const UserAuth = () => {
                     }
                     onChange={(e) => setUserInputEmailId(e.target.value)}
                     value={userInputEmailId}
+                    onKeyDown={(e)=>{
+                      if(e.key==='Enter'){
+                        handelToLoginUser()
+                      }
+                    }}
                     // id="forgot_password_email_verify_error"
                   />
                   <input
@@ -380,6 +385,11 @@ const UserAuth = () => {
                     id={userInputPasswordError ? "userAuth_input_error" : null}
                     onChange={(e) => setUserInputPassword(e.target.value)}
                     value={userInputPassword}
+                    onKeyDown={(e)=>{
+                      if(e.key==='Enter'){
+                        handelToLoginUser()
+                      }
+                    }}
                   />
 
                   <button
@@ -404,7 +414,12 @@ const UserAuth = () => {
                           : null
                       }
                       onChange={(e)=>setUseFirstNameSignup(e.target.value)} 
-                      value={useFirstNameSignup}                     
+                      value={useFirstNameSignup}
+                      onKeyDown={(e)=>{
+                        if(e.key==='Enter'){
+                          handelToSIgnUpUser()
+                        }
+                      }}                     
                     />
                     <p className="signup_error_msg_show">{isUseFirstNameSignupError?`${UseFirstNameSignupErrorMsg}`:null}</p>
                   </div>
@@ -421,6 +436,11 @@ const UserAuth = () => {
                       }
                       onChange={(e)=>setUserLastNameSignup(e.target.value)}
                       value={userLastNameSignup}
+                      onKeyDown={(e)=>{
+                        if(e.key==='Enter'){
+                          handelToSIgnUpUser()
+                        }
+                      }}
                     />
                     <p className="signup_error_msg_show">{isUserLastNameSignupError?`${UserLastNameSignupErrorMsg}`:null}</p>
                   </div>
@@ -437,7 +457,11 @@ const UserAuth = () => {
                       }
                       onChange={(e)=>setUserInputEmailIdSignup(e.target.value)}
                       value={userInputEmailIdSignup}
-                      // id="forgot_password_email_verify_error"
+                      onKeyDown={(e)=>{
+                        if(e.key==='Enter'){
+                          handelToSIgnUpUser()
+                        }
+                      }}
                     />
                     <p className="signup_error_msg_show">{isUserInputEmailIdSignupError?`${UserInputEmailIdSignupErrorMsg}`:null}</p>
                   </div>
@@ -454,6 +478,11 @@ const UserAuth = () => {
                       }
                       onChange={(e)=>setUserPasswordSignup(e.target.value)}
                       value={userPasswordSignup}
+                      onKeyDown={(e)=>{
+                        if(e.key==='Enter'){
+                          handelToSIgnUpUser()
+                        }
+                      }}
                     />
                     <p className="signup_error_msg_show">{isUserPasswordSignupError?`${UserPasswordSignupErrorMsg}`:null}</p>
                   </div>
@@ -470,6 +499,11 @@ const UserAuth = () => {
                       }
                       onChange={(e)=>setUserConformPasswordSignup(e.target.value)}
                       value={userConformPasswordSignup}
+                      onKeyDown={(e)=>{
+                        if(e.key==='Enter'){
+                          handelToSIgnUpUser()
+                        }
+                      }}
                     />
                     <p className="signup_error_msg_show">{isUserConformPasswordSignupError?`${UserConformPasswordSignupErrorMsg}`:null}</p>
                   </div>
